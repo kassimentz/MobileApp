@@ -11,15 +11,14 @@
 		8F07096561242D2C4FA871AA /* Pods_MobileAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3C94ABA197BFD445FE3CA4 /* Pods_MobileAppUITests.framework */; };
 		AE2921291E2D99200007FAEF /* PontoTuristico.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2921281E2D99200007FAEF /* PontoTuristico.swift */; };
 		AE29212B1E2D9A210007FAEF /* Comentario.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE29212A1E2D9A210007FAEF /* Comentario.swift */; };
-		AE29212D1E2D9C080007FAEF /* Lista.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE29212C1E2D9C080007FAEF /* Lista.swift */; };
 		AE29212F1E2D9C500007FAEF /* ListaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE29212E1E2D9C500007FAEF /* ListaManager.swift */; };
 		AE9287E41E2D948A006A505F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9287E31E2D948A006A505F /* AppDelegate.swift */; };
-		AE9287E61E2D948A006A505F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9287E51E2D948A006A505F /* ViewController.swift */; };
 		AE9287E91E2D948A006A505F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9287E71E2D948A006A505F /* Main.storyboard */; };
 		AE9287EB1E2D948A006A505F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE9287EA1E2D948A006A505F /* Assets.xcassets */; };
 		AE9287EE1E2D948A006A505F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9287EC1E2D948A006A505F /* LaunchScreen.storyboard */; };
 		AE9287F91E2D948A006A505F /* MobileAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9287F81E2D948A006A505F /* MobileAppTests.swift */; };
 		AE9288041E2D948A006A505F /* MobileAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9288031E2D948A006A505F /* MobileAppUITests.swift */; };
+		AEDB6C1D1E2EE810004CB6CA /* ListaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDB6C1C1E2EE810004CB6CA /* ListaTableViewController.swift */; };
 		DDCA32E967F61AB008A7C478 /* Pods_MobileAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB915E2EACD21B94AAA0835 /* Pods_MobileAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,11 +47,9 @@
 		985DD20A95435DF23F8014D4 /* Pods_MobileApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE2921281E2D99200007FAEF /* PontoTuristico.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PontoTuristico.swift; sourceTree = "<group>"; };
 		AE29212A1E2D9A210007FAEF /* Comentario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comentario.swift; sourceTree = "<group>"; };
-		AE29212C1E2D9C080007FAEF /* Lista.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lista.swift; sourceTree = "<group>"; };
 		AE29212E1E2D9C500007FAEF /* ListaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaManager.swift; sourceTree = "<group>"; };
 		AE9287E01E2D948A006A505F /* MobileApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9287E31E2D948A006A505F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AE9287E51E2D948A006A505F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AE9287E81E2D948A006A505F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE9287EA1E2D948A006A505F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE9287ED1E2D948A006A505F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,6 +60,7 @@
 		AE9287FF1E2D948A006A505F /* MobileAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9288031E2D948A006A505F /* MobileAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileAppUITests.swift; sourceTree = "<group>"; };
 		AE9288051E2D948A006A505F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEDB6C1C1E2EE810004CB6CA /* ListaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaTableViewController.swift; sourceTree = "<group>"; };
 		BB7E45AB7FEAB91080D2D213 /* Pods-MobileAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobileAppUITests/Pods-MobileAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CE1108ACD8FFD2F978101E15 /* Pods-MobileApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobileApp/Pods-MobileApp.release.xcconfig"; sourceTree = "<group>"; };
 		E1618D0203D7C3FFBAA17FE7 /* Pods-MobileAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobileAppUITests/Pods-MobileAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 			children = (
 				AE2921281E2D99200007FAEF /* PontoTuristico.swift */,
 				AE29212A1E2D9A210007FAEF /* Comentario.swift */,
-				AE29212C1E2D9C080007FAEF /* Lista.swift */,
 				AE29212E1E2D9C500007FAEF /* ListaManager.swift */,
 			);
 			name = Model;
@@ -157,11 +154,10 @@
 			isa = PBXGroup;
 			children = (
 				AE2921271E2D98B20007FAEF /* Model */,
+				AEDB6C191E2EE6AC004CB6CA /* View */,
+				AEDB6C1B1E2EE6F2004CB6CA /* Controller */,
+				AEDB6C1A1E2EE6CF004CB6CA /* Resources */,
 				AE9287E31E2D948A006A505F /* AppDelegate.swift */,
-				AE9287E51E2D948A006A505F /* ViewController.swift */,
-				AE9287E71E2D948A006A505F /* Main.storyboard */,
-				AE9287EA1E2D948A006A505F /* Assets.xcassets */,
-				AE9287EC1E2D948A006A505F /* LaunchScreen.storyboard */,
 				AE9287EF1E2D948A006A505F /* Info.plist */,
 			);
 			path = MobileApp;
@@ -183,6 +179,31 @@
 				AE9288051E2D948A006A505F /* Info.plist */,
 			);
 			path = MobileAppUITests;
+			sourceTree = "<group>";
+		};
+		AEDB6C191E2EE6AC004CB6CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AE9287E71E2D948A006A505F /* Main.storyboard */,
+				AE9287EC1E2D948A006A505F /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		AEDB6C1A1E2EE6CF004CB6CA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AE9287EA1E2D948A006A505F /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		AEDB6C1B1E2EE6F2004CB6CA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AEDB6C1C1E2EE810004CB6CA /* ListaTableViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,11 +491,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE29212B1E2D9A210007FAEF /* Comentario.swift in Sources */,
-				AE9287E61E2D948A006A505F /* ViewController.swift in Sources */,
 				AE9287E41E2D948A006A505F /* AppDelegate.swift in Sources */,
 				AE29212F1E2D9C500007FAEF /* ListaManager.swift in Sources */,
-				AE29212D1E2D9C080007FAEF /* Lista.swift in Sources */,
 				AE2921291E2D99200007FAEF /* PontoTuristico.swift in Sources */,
+				AEDB6C1D1E2EE810004CB6CA /* ListaTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
