@@ -42,10 +42,59 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Q76-wV-gp1"/>
+                    <connections>
+                        <segue destination="G7Z-c5-dBP" kind="show" id="uMC-wd-gEL"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ao3-OI-04N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1180" y="793"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="3Ma-DT-NMq">
+            <objects>
+                <viewController id="G7Z-c5-dBP" customClass="MainViewController" customModule="MobileApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="feN-oj-wIm"/>
+                        <viewControllerLayoutGuide type="bottom" id="hqQ-mm-8wg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jfh-lq-XRM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FOTO" translatesAutoresizingMaskIntoConstraints="NO" id="A43-Ai-gRJ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="BVn-WK-FfD"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AVATAR" translatesAutoresizingMaskIntoConstraints="NO" id="0lk-cp-Rdo">
+                                <rect key="frame" x="228" y="221" width="117" height="92"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="117" id="r2w-eR-ulw"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="BARRA DA FOTO" translatesAutoresizingMaskIntoConstraints="NO" id="GVB-R3-o6d">
+                                <rect key="frame" x="0.0" y="264" width="375" height="49"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93454501295336789" green="0.93454501295336789" blue="0.93454501295336789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0lk-cp-Rdo" firstAttribute="top" secondItem="feN-oj-wIm" secondAttribute="bottom" constant="157" id="0v2-5E-hyF"/>
+                            <constraint firstAttribute="trailing" secondItem="A43-Ai-gRJ" secondAttribute="trailing" id="8EI-og-z2S"/>
+                            <constraint firstItem="GVB-R3-o6d" firstAttribute="leading" secondItem="Jfh-lq-XRM" secondAttribute="leading" id="BCq-Iw-jGb"/>
+                            <constraint firstItem="0lk-cp-Rdo" firstAttribute="trailing" secondItem="A43-Ai-gRJ" secondAttribute="trailing" constant="-30" id="OHq-Mx-BUV"/>
+                            <constraint firstItem="A43-Ai-gRJ" firstAttribute="leading" secondItem="Jfh-lq-XRM" secondAttribute="leading" id="PCh-Iz-RQ2"/>
+                            <constraint firstItem="0lk-cp-Rdo" firstAttribute="baseline" secondItem="A43-Ai-gRJ" secondAttribute="baseline" constant="49" id="TJ2-JZ-ksR"/>
+                            <constraint firstItem="A43-Ai-gRJ" firstAttribute="top" secondItem="feN-oj-wIm" secondAttribute="bottom" id="cwh-bP-Mv9"/>
+                            <constraint firstAttribute="trailing" secondItem="GVB-R3-o6d" secondAttribute="trailing" id="h3w-bk-TFv"/>
+                            <constraint firstItem="GVB-R3-o6d" firstAttribute="top" secondItem="A43-Ai-gRJ" secondAttribute="bottom" id="oic-Gp-e9W"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fS1-gP-Z8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2112.8000000000002" y="792.95352323838085"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oc8-tE-5eh">
@@ -66,4 +115,9 @@
             <point key="canvasLocation" x="241" y="793"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="AVATAR" width="284" height="261"/>
+        <image name="BARRA DA FOTO" width="1060" height="164"/>
+        <image name="FOTO" width="1051" height="687"/>
+    </resources>
 </document>
