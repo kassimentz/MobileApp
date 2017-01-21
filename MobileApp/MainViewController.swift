@@ -11,8 +11,9 @@ import MapKit
 import AlamofireImage
 import Alamofire
 
-class MainViewController: UIViewController, MKMapViewDelegate  {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate  {
     
+    @IBOutlet weak var tableview: UITableView!
    
     @IBOutlet weak var mapView: MKMapView!
     
@@ -39,6 +40,24 @@ class MainViewController: UIViewController, MKMapViewDelegate  {
                                                     }
         })
 
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //let image = UIImage(named: "BARRA SUPERIOR.png")
+        //self.navigationItem.titleView = UIImageView(image: image)
+        print("idescolhido:",idEscolhido!)
+        self.loadData(idEscolhido: idEscolhido!)
+        //print(self.pontoTuristico.texto!)
+        
+        self.mapView.delegate = self
+        
+        
+    }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
     func addMapAnnotation() {
@@ -92,20 +111,11 @@ class MainViewController: UIViewController, MKMapViewDelegate  {
         if let txtEndereco = self.pontoTuristico?.endereco {
             enderecoMapa.text = txtEndereco
         }
+        
+        tableview.reloadData()
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //let image = UIImage(named: "BARRA SUPERIOR.png")
-        //self.navigationItem.titleView = UIImageView(image: image)
-        print("idescolhido:",idEscolhido!)
-        self.loadData(idEscolhido: idEscolhido!)
-        //print(self.pontoTuristico.texto!)
-        
-        self.mapView.delegate = self
-        
-        
-    }
+    
 
     
     
@@ -115,12 +125,6 @@ class MainViewController: UIViewController, MKMapViewDelegate  {
                 img.image = image
             }
         }
-    }
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
@@ -143,6 +147,35 @@ class MainViewController: UIViewController, MKMapViewDelegate  {
             }
         }
     }
+    
+    // MARK: - Table functions
+    
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "comentarioCell", for: indexPath)
+        if let comentario = self.pontoTuristico?.comentarios?[indexPath.row] {
+            loadImageFromUrl(url: (comentario.urlFoto)!, img: cell.imageView!)
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let count = self.pontoTuristico?.comentarios?.count {
+            return count
+        } else {
+            return 0
+        }
+        
+    }
+    
+
+    
+    
+    
+
+    
     
     
     /*
