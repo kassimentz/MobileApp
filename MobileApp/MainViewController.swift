@@ -49,8 +49,13 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: self.scrollView.frame.height+800)
         
 
-        //let image = UIImage(named: "BARRA SUPERIOR.png")
-        //self.navigationItem.titleView = UIImageView(image: image)
+        var image = UIImage(named: "BARRA SUPERIOR.png")
+        let size = CGSize(width: self.scrollView.frame.width-90, height: 70.0)
+        image = image?.imageResize(sizeChange: size)
+        
+        
+        self.navigationController?.navigationBar.setBackgroundImage(image,for: .default)
+       
         print("idescolhido:",idEscolhido!)
         self.loadData(idEscolhido: idEscolhido!)
         //print(self.pontoTuristico.texto!)
