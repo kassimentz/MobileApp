@@ -11,12 +11,27 @@ import UIKit
 class MainViewController: UIViewController {
     
     var idEscolhido: String?
+    var pontoTuristico = PontoTuristico()
+    
+    func loadData() {
+        
+        let pontoTuristicoManager = PontoTuristicoManager()
+        
+        pontoTuristicoManager.loadPontoTuristico(idPontoTuristico: idEscolhido!,
+                                                 callback: { (pontoTuristico, error) in
+                                                    if error == nil {
+                                                        self.pontoTuristico = pontoTuristico!
+                                                    }
+        })
+
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         //let image = UIImage(named: "BARRA SUPERIOR.png")
         //self.navigationItem.titleView = UIImageView(image: image)
         print("idescolhido:"+idEscolhido!)
+        self.loadData()
         
         
     }
@@ -41,3 +56,4 @@ class MainViewController: UIViewController {
     
 
 }
+

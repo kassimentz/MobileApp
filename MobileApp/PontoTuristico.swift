@@ -8,17 +8,21 @@
 
 import UIKit
 
-struct PontoTuristico {
-    let id : String?
-    let cidade: String?
-    let bairro: String?
-    let urlFoto: String?
-    let urlLogo: String?
-    let titulo: String?
-    let telefone: String?
-    let texto: String?
-    let endereco: String?
-    let latitude: Double?
-    let longitude: Double?
-    let comentarios : [Comentario]?
+class PontoTuristico: NSObject {
+    var id : String?
+    var cidade: String?
+    var bairro: String?
+    var urlFoto: String?
+    var urlLogo: String?
+    var titulo: String?
+    var telefone: String?
+    var texto: String?
+    var endereco: String?
+    var latitude: Double?
+    var longitude: Double?
+    var comentarios : [Comentario]?
+    
+    override init() {
+        
+    }
 }

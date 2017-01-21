@@ -43,22 +43,25 @@ class PontoTuristicoManager: NSObject {
             
             in
             
-            
             let json = JSON(data: response.data!)
             
             for(_, subJSON): (String, JSON) in json {
-                let ponto = PontoTuristico(id: subJSON["id"].string,
-                                                cidade: subJSON["cidade"].string,
-                                                bairro: subJSON["bairro"].string,
-                                                urlFoto: subJSON["urlFoto"].string,
-                                                urlLogo: subJSON["urlLogo"].string,
-                                                titulo: subJSON["titulo"].string,
-                                                telefone: subJSON["telefone"].string,
-                                                texto: subJSON["texto"].string,
-                                                endereco: subJSON["endereco"].string,
-                                                latitude: subJSON["latitude"].double,
-                                                longitude: subJSON["longitude"].double,
-                                                comentarios: self.comentarios)
+
+                let ponto = PontoTuristico()
+                
+                ponto.id = subJSON["id"].string
+                ponto.cidade = subJSON["cidade"].string
+                ponto.urlFoto = subJSON["urlFoto"].string
+                ponto.urlLogo = subJSON["urlLogo"].string
+                ponto.titulo = subJSON["titulo"].string
+                ponto.telefone = subJSON["telefone"].string
+                ponto.texto = subJSON["texto"].string
+                ponto.endereco = subJSON["endereco"].string
+                ponto.latitude = subJSON["latitude"].double
+                ponto.longitude = subJSON["longitude"].double
+                ponto.comentarios = self.comentarios
+                
+                print(ponto)
                 
                 callback(ponto, json.error)
             }
