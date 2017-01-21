@@ -16,6 +16,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tableview: UITableView!
    
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var idEscolhido: String?
     var pontoTuristico : PontoTuristico?
@@ -44,6 +45,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: self.scrollView.frame.height+800)
+        
+
         //let image = UIImage(named: "BARRA SUPERIOR.png")
         //self.navigationItem.titleView = UIImageView(image: image)
         print("idescolhido:",idEscolhido!)
@@ -148,14 +153,39 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    @IBAction func mostrarComentarios(_ sender: UIButton) {
+        let indexPath = IndexPath(row: 0, section: 0)
+        tableview.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.middle)
+
+    }
+    
     // MARK: - Table functions
     
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "comentarioCell", for: indexPath)
+        let cell: ComentarioTableViewCell = tableView.dequeueReusableCell(withIdentifier: "comentarioCell", for: indexPath) as! ComentarioTableViewCell
         if let comentario = self.pontoTuristico?.comentarios?[indexPath.row] {
-            loadImageFromUrl(url: (comentario.urlFoto)!, img: cell.imageView!)
+            loadImageFromUrl(url: (comentario.urlFoto)!, img: cell.usuarioImagem)
+            cell.usuarioNome.text = comentario.nome
+            cell.comentarioTitulo.text = comentario.titulo
+            cell.comentario.text = comentario.comentario
+            
+            var image = UIImage(named: "NOTA5.png")
+            
+            if let nota = comentario.nota {
+                switch (nota){
+                case 1: image = UIImage(named: "NOTA1.png")
+                case 2: image = UIImage(named: "NOTA2.png")
+                case 3: image = UIImage(named: "NOTA3.png")
+                case 4: image = UIImage(named: "NOTA4.png")
+                default:
+                    image = UIImage(named: "NOTA5.png")
+                }
+            }
+            
+            cell.comentarioNota.image = image
+            
         }
         
         return cell

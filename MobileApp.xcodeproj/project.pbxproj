@@ -21,6 +21,7 @@
 		AE9287EE1E2D948A006A505F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9287EC1E2D948A006A505F /* LaunchScreen.storyboard */; };
 		AE9287F91E2D948A006A505F /* MobileAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9287F81E2D948A006A505F /* MobileAppTests.swift */; };
 		AE9288041E2D948A006A505F /* MobileAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9288031E2D948A006A505F /* MobileAppUITests.swift */; };
+		AEC59D551E34023D00817A1C /* ComentarioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC59D541E34023D00817A1C /* ComentarioTableViewCell.swift */; };
 		AED67EF81E318C0700B67134 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED67EF71E318C0700B67134 /* MainViewController.swift */; };
 		AEDB6C1D1E2EE810004CB6CA /* ListaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDB6C1C1E2EE810004CB6CA /* ListaTableViewController.swift */; };
 		DDCA32E967F61AB008A7C478 /* Pods_MobileAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB915E2EACD21B94AAA0835 /* Pods_MobileAppTests.framework */; };
@@ -67,6 +68,7 @@
 		AE9287FF1E2D948A006A505F /* MobileAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9288031E2D948A006A505F /* MobileAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileAppUITests.swift; sourceTree = "<group>"; };
 		AE9288051E2D948A006A505F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEC59D541E34023D00817A1C /* ComentarioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComentarioTableViewCell.swift; sourceTree = "<group>"; };
 		AED67EF71E318C0700B67134 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AEDB6C1C1E2EE810004CB6CA /* ListaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaTableViewController.swift; sourceTree = "<group>"; };
 		BB7E45AB7FEAB91080D2D213 /* Pods-MobileAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobileAppUITests/Pods-MobileAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				AE2921271E2D98B20007FAEF /* Model */,
 				AEDB6C191E2EE6AC004CB6CA /* View */,
 				AEDB6C1B1E2EE6F2004CB6CA /* Controller */,
+				AEC59D531E34022400817A1C /* Cell */,
 				AEDB6C1A1E2EE6CF004CB6CA /* Resources */,
 				AE9287E31E2D948A006A505F /* AppDelegate.swift */,
 				AE9287EF1E2D948A006A505F /* Info.plist */,
@@ -189,6 +192,14 @@
 				AE9288051E2D948A006A505F /* Info.plist */,
 			);
 			path = MobileAppUITests;
+			sourceTree = "<group>";
+		};
+		AEC59D531E34022400817A1C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				AEC59D541E34023D00817A1C /* ComentarioTableViewCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		AEDB6C191E2EE6AC004CB6CA /* View */ = {
@@ -510,6 +521,7 @@
 				AE2921291E2D99200007FAEF /* PontoTuristico.swift in Sources */,
 				AE48C6881E338A9200FDB7C1 /* ComentariosManager.swift in Sources */,
 				AE48C68A1E33C25400FDB7C1 /* ServicosViewController.swift in Sources */,
+				AEC59D551E34023D00817A1C /* ComentarioTableViewCell.swift in Sources */,
 				AEDB6C1D1E2EE810004CB6CA /* ListaTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

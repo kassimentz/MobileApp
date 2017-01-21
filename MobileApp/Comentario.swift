@@ -11,7 +11,7 @@ import UIKit
 struct Comentario {
     let urlFoto: String?
     let nome: String?
-    let nota: Double?
+    let nota: Int?
     let titulo: String?
     let comentario: String?
 }
