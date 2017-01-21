@@ -143,7 +143,7 @@
                                         </constraints>
                                     </mapView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PKV-AR-0dt">
-                                        <rect key="frame" x="0.0" y="156.5" width="375" height="20"/>
+                                        <rect key="frame" x="0.0" y="161.5" width="375" height="15"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HkE-zM-xyX">
                                                 <rect key="frame" x="0.0" y="0.0" width="295" height="13.5"/>
@@ -157,7 +157,7 @@
                                             <constraint firstItem="HkE-zM-xyX" firstAttribute="top" secondItem="PKV-AR-0dt" secondAttribute="top" id="E7P-Vw-asY"/>
                                             <constraint firstAttribute="trailing" secondItem="HkE-zM-xyX" secondAttribute="trailing" constant="80" id="Frh-66-jHe"/>
                                             <constraint firstItem="HkE-zM-xyX" firstAttribute="leading" secondItem="PKV-AR-0dt" secondAttribute="leading" id="HVS-Pe-6MD"/>
-                                            <constraint firstAttribute="height" constant="20" id="IOC-ma-F3w"/>
+                                            <constraint firstAttribute="height" constant="15" id="IOC-ma-F3w"/>
                                         </constraints>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PIN-1" translatesAutoresizingMaskIntoConstraints="NO" id="9Jq-sk-ZdQ">
