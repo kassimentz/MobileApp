@@ -7,11 +7,26 @@
 //
 
 import UIKit
+import MapKit
+import AlamofireImage
+import Alamofire
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, MKMapViewDelegate  {
+    
+   
+    @IBOutlet weak var mapView: MKMapView!
     
     var idEscolhido: String?
-    var pontoTuristico = PontoTuristico()
+    var pontoTuristico : PontoTuristico?
+    var annotation: MKPointAnnotation!
+    
+    @IBOutlet weak var foto: UIImageView!
+    @IBOutlet weak var logo: UIImageView!
+    @IBOutlet weak var titulo: UILabel!
+    @IBOutlet weak var texto: UILabel!
+    @IBOutlet weak var enderecoMapa: UILabel!
+    
+    
     
     func loadData(idEscolhido: String) {
         
@@ -25,6 +40,59 @@ class MainViewController: UIViewController {
         })
 
     }
+    
+    func addMapAnnotation() {
+        if let pontoTuristico = self.pontoTuristico {
+            let latDelta: CLLocationDegrees = 0.001
+            let lonDelta: CLLocationDegrees = 0.001
+            let span: MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
+            
+            let location = CLLocationCoordinate2D(latitude: pontoTuristico.latitude! , longitude: pontoTuristico.longitude!)
+            
+            annotation = MKPointAnnotation()
+            annotation.coordinate = location
+            
+            if let titulo = pontoTuristico.titulo {
+                annotation.title = "Local: \(titulo)"
+            } else {
+                annotation.title = "Local -"
+            }
+            
+            let region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+            mapView.setRegion(region, animated: true)
+            
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKPointAnnotation {
+            let pinAnnotationview = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "myPin")
+            
+            pinAnnotationview.pinTintColor = .purple
+            pinAnnotationview.isDraggable = true
+            pinAnnotationview.canShowCallout = true
+            pinAnnotationview.animatesDrop = true
+            
+            return pinAnnotationview
+        }
+        return nil
+    }
+    
+    func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
+        addMapAnnotation()
+        self.mapView.addAnnotation(annotation)
+        loadImageFromUrl(url: (pontoTuristico?.urlFoto)!, img: foto)
+        loadImageFromUrl(url: (pontoTuristico?.urlLogo)!, img: logo)
+        if let txtTitulo = self.pontoTuristico?.titulo {
+           titulo.text = txtTitulo
+        }
+        if let txtTexto = self.pontoTuristico?.texto {
+            texto.text = txtTexto
+        }
+        if let txtEndereco = self.pontoTuristico?.endereco {
+            enderecoMapa.text = txtEndereco
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +102,21 @@ class MainViewController: UIViewController {
         self.loadData(idEscolhido: idEscolhido!)
         //print(self.pontoTuristico.texto!)
         
+        self.mapView.delegate = self
+        
         
     }
+
+    
+    
+    func loadImageFromUrl(url: String, img: UIImageView) {
+        Alamofire.request(url).responseImage { response in
+            if let image = response.result.value {
+                img.image = image
+            }
+        }
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -44,7 +125,7 @@ class MainViewController: UIViewController {
     
 
     @IBAction func mostrarEndereco(_ sender: Any) {
-        let alert = UIAlertController(title: "Alert", message: self.pontoTuristico.endereco, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Alert", message: pontoTuristico?.endereco, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
@@ -52,7 +133,7 @@ class MainViewController: UIViewController {
     
     @IBAction func realizarLigacao(_ sender: Any) {
         print("realizar ligacao")
-        let formatedNumber = self.pontoTuristico.telefone?.components(separatedBy: NSCharacterSet.decimalDigits.inverted).joined(separator: "")
+        let formatedNumber = self.pontoTuristico?.telefone?.components(separatedBy: NSCharacterSet.decimalDigits.inverted).joined(separator: "")
         
         if let url = URL(string: "telprompt://" + formatedNumber!) {
             if #available(iOS 10, *) {
