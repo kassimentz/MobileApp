@@ -9,11 +9,14 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    
+    var idEscolhido: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let image = UIImage(named: "BARRA SUPERIOR.png")
-        self.navigationItem.titleView = UIImageView(image: image)
+        //let image = UIImage(named: "BARRA SUPERIOR.png")
+        //self.navigationItem.titleView = UIImageView(image: image)
+        print("idescolhido:"+idEscolhido!)
         
         
     }

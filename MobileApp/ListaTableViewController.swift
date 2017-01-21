@@ -60,6 +60,10 @@ class ListaTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "pontoTuristico", sender: self.listaMenu[indexPath.row])
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -96,14 +100,19 @@ class ListaTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "pontoTuristico" {
+            let mainViewController = segue.destination as! MainViewController
+            if let idEscolhido = sender as? String {
+                mainViewController.idEscolhido = idEscolhido
+            }
+        }
     }
-    */
 
 }
