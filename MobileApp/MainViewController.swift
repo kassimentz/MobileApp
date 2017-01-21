@@ -125,9 +125,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     
-
-    
-    
     func loadImageFromUrl(url: String, img: UIImageView) {
         Alamofire.request(url).responseImage { response in
             if let image = response.result.value {
@@ -158,9 +155,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     @IBAction func mostrarComentarios(_ sender: UIButton) {
-        let indexPath = IndexPath(row: 0, section: 0)
-        tableview.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.middle)
-
+        if (self.pontoTuristico?.comentarios?.count)! > 0 {
+            let indexPath = IndexPath(row: 0, section: 0)
+            tableview.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.middle)
+        }
     }
     
     // MARK: - Table functions
@@ -176,15 +174,34 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.comentario.text = comentario.comentario
             
             var image = UIImage(named: "NOTA5.png")
+            var size = CGSize(width: 150.0, height: 30.0)
             
             if let nota = comentario.nota {
                 switch (nota){
-                case 1: image = UIImage(named: "NOTA1.png")
-                case 2: image = UIImage(named: "NOTA2.png")
-                case 3: image = UIImage(named: "NOTA3.png")
-                case 4: image = UIImage(named: "NOTA4.png")
+                case 1:
+                    image = UIImage(named: "NOTA1.png")
+                    size = CGSize(width: 30.0, height: 30.0)
+                    image = image?.imageResize(sizeChange: size)
+                
+                case 2:
+                    image = UIImage(named: "NOTA2.png")
+                    size = CGSize(width: 60.0, height: 30.0)
+                    image = image?.imageResize(sizeChange: size)
+                    
+                case 3:
+                    image = UIImage(named: "NOTA3.png")
+                    size = CGSize(width: 90.0, height: 30.0)
+                    image = image?.imageResize(sizeChange: size)
+                    
+                case 4:
+                    image = UIImage(named: "NOTA4.png")
+                    size = CGSize(width: 120.0, height: 30.0)
+                    image = image?.imageResize(sizeChange: size)
+                    
                 default:
                     image = UIImage(named: "NOTA5.png")
+                    size = CGSize(width: 150.0, height: 30.0)
+                    image = image?.imageResize(sizeChange: size)
                 }
             }
             
@@ -226,4 +243,18 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
 
 }
-
+extension UIImage {
+    
+    func imageResize (sizeChange:CGSize)-> UIImage{
+        
+        let hasAlpha = true
+        let scale: CGFloat = 0.0 // Use scale factor of main screen
+        
+        UIGraphicsBeginImageContextWithOptions(sizeChange, !hasAlpha, scale)
+        self.draw(in: CGRect(origin: CGPoint.zero, size: sizeChange))
+        
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        return scaledImage!
+    }
+    
+}
