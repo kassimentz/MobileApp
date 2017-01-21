@@ -13,7 +13,6 @@
 		AE29212B1E2D9A210007FAEF /* Comentario.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE29212A1E2D9A210007FAEF /* Comentario.swift */; };
 		AE29212F1E2D9C500007FAEF /* ListaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE29212E1E2D9C500007FAEF /* ListaManager.swift */; };
 		AE48C6861E33845B00FDB7C1 /* PontoTuristicoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE48C6851E33845B00FDB7C1 /* PontoTuristicoManager.swift */; };
-		AE48C6881E338A9200FDB7C1 /* ComentariosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE48C6871E338A9200FDB7C1 /* ComentariosManager.swift */; };
 		AE48C68A1E33C25400FDB7C1 /* ServicosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE48C6891E33C25400FDB7C1 /* ServicosViewController.swift */; };
 		AE9287E41E2D948A006A505F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9287E31E2D948A006A505F /* AppDelegate.swift */; };
 		AE9287E91E2D948A006A505F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9287E71E2D948A006A505F /* Main.storyboard */; };
@@ -54,7 +53,6 @@
 		AE29212A1E2D9A210007FAEF /* Comentario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comentario.swift; sourceTree = "<group>"; };
 		AE29212E1E2D9C500007FAEF /* ListaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaManager.swift; sourceTree = "<group>"; };
 		AE48C6851E33845B00FDB7C1 /* PontoTuristicoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PontoTuristicoManager.swift; sourceTree = "<group>"; };
-		AE48C6871E338A9200FDB7C1 /* ComentariosManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComentariosManager.swift; sourceTree = "<group>"; };
 		AE48C6891E33C25400FDB7C1 /* ServicosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicosViewController.swift; sourceTree = "<group>"; };
 		AE9287E01E2D948A006A505F /* MobileApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9287E31E2D948A006A505F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 				AE29212A1E2D9A210007FAEF /* Comentario.swift */,
 				AE29212E1E2D9C500007FAEF /* ListaManager.swift */,
 				AE48C6851E33845B00FDB7C1 /* PontoTuristicoManager.swift */,
-				AE48C6871E338A9200FDB7C1 /* ComentariosManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -519,7 +516,6 @@
 				AE29212F1E2D9C500007FAEF /* ListaManager.swift in Sources */,
 				AED67EF81E318C0700B67134 /* MainViewController.swift in Sources */,
 				AE2921291E2D99200007FAEF /* PontoTuristico.swift in Sources */,
-				AE48C6881E338A9200FDB7C1 /* ComentariosManager.swift in Sources */,
 				AE48C68A1E33C25400FDB7C1 /* ServicosViewController.swift in Sources */,
 				AEC59D551E34023D00817A1C /* ComentarioTableViewCell.swift in Sources */,
 				AEDB6C1D1E2EE810004CB6CA /* ListaTableViewController.swift in Sources */,

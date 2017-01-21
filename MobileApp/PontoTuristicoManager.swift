@@ -12,22 +12,7 @@ import SwiftyJSON
 
 class PontoTuristicoManager: NSObject {
     
-    var comentarios = [Comentario]()
     
-    /*
-     Metodo para buscar os comentarios referente ao ponto turistico
-     Recebe o id do ponto turistico e retorna um array de comentarios
-     Utiliza a classe comentarios manager, que faz a busca diretamente no endpoint
-     */
-    func loadComentarios(idPontoTuristico: String) {
-        let comentariosManager = ComentariosManager()
-        comentariosManager.loadComentarios(idPontoTuristico: idPontoTuristico,
-                                           callback: { (comentarios, error) in
-                                            if error == nil {
-                                                self.comentarios = comentarios!
-                                            }
-        })
-    }
     
     /*
      Metodo para buscar as informacoes do ponto turistico
@@ -37,16 +22,25 @@ class PontoTuristicoManager: NSObject {
     func loadPontoTuristico(idPontoTuristico: String, callback: @escaping(
         _ pontoTuristico: PontoTuristico?, _ error: Error?) -> ()){
         
-        loadComentarios(idPontoTuristico: idPontoTuristico)
-        
         
         Alamofire.request("http://dev.4all.com:3003/tarefa/"+idPontoTuristico).responseJSON {response
             
             in
             
-            let ponto = PontoTuristico()
+                let ponto = PontoTuristico()
+                var comentarios = [Comentario]()
             
-            let json = JSON(data: response.data!)
+                let json = JSON(data: response.data!)
+            
+                for(_, subJSON): (String, JSON) in json["comentarios"] {
+                    let comentario = Comentario(urlFoto: subJSON["urlFoto"].string,
+                                            nome: subJSON["nome"].string,
+                                            nota: subJSON["nota"].int,
+                                            titulo: subJSON["titulo"].string,
+                                            comentario: subJSON["comentario"].string)
+                
+                    comentarios.append(comentario)
+                }
             
                 ponto.id = json["id"].string
                 ponto.cidade = json["cidade"].string
@@ -58,9 +52,9 @@ class PontoTuristicoManager: NSObject {
                 ponto.endereco = json["endereco"].string
                 ponto.latitude = json["latitude"].double
                 ponto.longitude = json["longitude"].double
-                ponto.comentarios = self.comentarios
-                
-                callback(ponto, json.error)
+                ponto.comentarios = comentarios
+            
+            callback(ponto, json.error)
             
             
         }

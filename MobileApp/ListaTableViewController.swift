@@ -61,6 +61,7 @@ class ListaTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.title = ""
         self.performSegue(withIdentifier: "pontoTuristico", sender: self.listaMenu[indexPath.row])
     }
     
