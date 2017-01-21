@@ -104,7 +104,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
         addMapAnnotation()
-        self.mapView.addAnnotation(annotation)
+        print(annotation)
+        if(annotation != nil) {
+            self.mapView.addAnnotation(annotation)
+        }
+        
         loadImageFromUrl(url: (pontoTuristico?.urlFoto)!, img: foto)
         loadImageFromUrl(url: (pontoTuristico?.urlLogo)!, img: logo)
         if let txtTitulo = self.pontoTuristico?.titulo {
