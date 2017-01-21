@@ -48,6 +48,22 @@ class MainViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    
+    @IBAction func realizarLigacao(_ sender: Any) {
+        print("realizar ligacao")
+        let formatedNumber = self.pontoTuristico.telefone?.components(separatedBy: NSCharacterSet.decimalDigits.inverted).joined(separator: "")
+        
+        if let url = URL(string: "telprompt://" + formatedNumber!) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url as URL)
+            }
+        }
+    }
+    
+    
     /*
     // MARK: - Navigation
 
