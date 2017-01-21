@@ -39,33 +39,29 @@ class PontoTuristicoManager: NSObject {
         
         loadComentarios(idPontoTuristico: idPontoTuristico)
         
+        
         Alamofire.request("http://dev.4all.com:3003/tarefa/"+idPontoTuristico).responseJSON {response
             
             in
             
-            let json = JSON(data: response.data!)
-            print(" json",json)
+            let ponto = PontoTuristico()
             
-            for(_, subJSON): (String, JSON) in json {
-
-                let ponto = PontoTuristico()
-                
-                ponto.id = subJSON["id"].string
-                ponto.cidade = subJSON["cidade"].string
-                ponto.urlFoto = subJSON["urlFoto"].string
-                ponto.urlLogo = subJSON["urlLogo"].string
-                ponto.titulo = subJSON["titulo"].string
-                ponto.telefone = subJSON["telefone"].string
-                ponto.texto = subJSON["texto"].string
-                ponto.endereco = subJSON["endereco"].string
-                ponto.latitude = subJSON["latitude"].double
-                ponto.longitude = subJSON["longitude"].double
+            let json = JSON(data: response.data!)
+            
+                ponto.id = json["id"].string
+                ponto.cidade = json["cidade"].string
+                ponto.urlFoto = json["urlFoto"].string
+                ponto.urlLogo = json["urlLogo"].string
+                ponto.titulo = json["titulo"].string
+                ponto.telefone = json["telefone"].string
+                ponto.texto = json["texto"].string
+                ponto.endereco = json["endereco"].string
+                ponto.latitude = json["latitude"].double
+                ponto.longitude = json["longitude"].double
                 ponto.comentarios = self.comentarios
                 
-                print(ponto)
-                
                 callback(ponto, json.error)
-            }
+            
             
         }
         

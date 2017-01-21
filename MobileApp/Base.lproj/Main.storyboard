@@ -84,36 +84,44 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Qvb-2K-ZRi">
                                         <rect key="frame" x="20" y="10" width="335" height="40"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LIGAR" translatesAutoresizingMaskIntoConstraints="NO" id="vP0-4H-8wt">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22L-lv-HK7">
                                                 <rect key="frame" x="0.0" y="0.0" width="59" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="v9o-dH-wMV"/>
+                                                    <constraint firstAttribute="height" constant="40" id="xSW-Eu-ACb"/>
                                                 </constraints>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SERVIÇOS" translatesAutoresizingMaskIntoConstraints="NO" id="mdn-qx-q4O">
+                                                <state key="normal" title="Button" image="LIGAR"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7J-4E-GHg">
                                                 <rect key="frame" x="69" y="0.0" width="59" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="uLE-aX-z14"/>
+                                                    <constraint firstAttribute="height" constant="40" id="eTr-Lf-5qQ"/>
                                                 </constraints>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ENDEREÇO" translatesAutoresizingMaskIntoConstraints="NO" id="Ze9-AR-JGm">
+                                                <state key="normal" title="Button" image="SERVIÇOS"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpI-t2-sPT">
                                                 <rect key="frame" x="138" y="0.0" width="59" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="9IC-G8-31f"/>
+                                                    <constraint firstAttribute="height" constant="40" id="g9y-6N-xTZ"/>
                                                 </constraints>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="COMENTÁRIOS" translatesAutoresizingMaskIntoConstraints="NO" id="cKh-Gv-pnQ">
+                                                <state key="normal" title="Button" image="ENDEREÇO"/>
+                                                <connections>
+                                                    <action selector="mostrarEndereco:" destination="G7Z-c5-dBP" eventType="touchUpInside" id="1Kq-O9-TIC"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWc-aD-DlL">
                                                 <rect key="frame" x="207" y="0.0" width="59" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="QTM-nW-8o7"/>
+                                                    <constraint firstAttribute="height" constant="40" id="lmw-XC-ltJ"/>
                                                 </constraints>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FAVORITOS" translatesAutoresizingMaskIntoConstraints="NO" id="Njp-jb-eD6">
+                                                <state key="normal" title="Button" image="COMENTÁRIOS"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLz-fx-vju">
                                                 <rect key="frame" x="276" y="0.0" width="59" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="B1J-Bc-V3Z"/>
+                                                    <constraint firstAttribute="height" constant="40" id="YqB-Gm-OXA"/>
                                                 </constraints>
-                                            </imageView>
+                                                <state key="normal" title="Button" image="FAVORITOS"/>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BARRINHA BRANCA" translatesAutoresizingMaskIntoConstraints="NO" id="4v8-sy-N8T">

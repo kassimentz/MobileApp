@@ -43,6 +43,11 @@ class MainViewController: UIViewController {
     }
     
 
+    @IBAction func mostrarEndereco(_ sender: Any) {
+        let alert = UIAlertController(title: "Alert", message: self.pontoTuristico.endereco, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
