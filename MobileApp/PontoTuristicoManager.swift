@@ -44,6 +44,7 @@ class PontoTuristicoManager: NSObject {
             in
             
             let json = JSON(data: response.data!)
+            print(" json",json)
             
             for(_, subJSON): (String, JSON) in json {
 

@@ -28,7 +28,7 @@ class ComentariosManager: NSObject {
             
             let json = JSON(data: response.data!)
             
-            for(_, subJSON): (String, JSON) in json {
+            for(_, subJSON): (String, JSON) in json["comentarios"] {
                 let comentario = Comentario(urlFoto: subJSON["urlFoto"].string,
                                             nome: subJSON["nome"].string,
                                             nota: subJSON["nota"].double,
