@@ -192,12 +192,6 @@
                                                                         <constraint firstAttribute="height" constant="55" id="huU-XT-ude"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UZe-hd-7XA">
-                                                                    <rect key="frame" x="261" y="13" width="106" height="24"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="106" id="zu2-fi-qid"/>
-                                                                    </constraints>
-                                                                </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxy-3A-z1Y">
                                                                     <rect key="frame" x="89" y="24" width="31" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -216,16 +210,40 @@
                                                                     <color key="textColor" red="0.87947565319999998" green="0.54711598159999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrv-sq-q7v" customClass="CosmosView" customModule="Cosmos">
+                                                                    <rect key="frame" x="203" y="14" width="164" height="36"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                                                            <integer key="value" value="5"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                                            <real key="value" value="25"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                                                            <color key="value" red="0.87947565319999998" green="0.54711598159999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                                                            <color key="value" red="0.87843137250000003" green="0.54901960780000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="filledBorderWidth">
+                                                                            <real key="value" value="0.0"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                                                                            <color key="value" red="0.87947565319999998" green="0.54711598159999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                                                            <integer key="value" value="1"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </view>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="X63-h2-lKs" firstAttribute="leading" secondItem="tB6-CV-1fM" secondAttribute="leading" id="6FL-hv-yLC"/>
                                                                 <constraint firstItem="X63-h2-lKs" firstAttribute="top" secondItem="qxy-3A-z1Y" secondAttribute="bottom" constant="4" id="7fX-Vs-aCC"/>
-                                                                <constraint firstAttribute="bottomMargin" secondItem="UZe-hd-7XA" secondAttribute="bottom" constant="99" id="7kh-Cq-skA"/>
                                                                 <constraint firstItem="qxy-3A-z1Y" firstAttribute="leading" secondItem="KA0-X4-AQV" secondAttribute="trailing" constant="19" id="9W6-pB-1rG"/>
                                                                 <constraint firstItem="qxy-3A-z1Y" firstAttribute="leading" secondItem="X63-h2-lKs" secondAttribute="leading" id="BKi-5I-3Qu"/>
-                                                                <constraint firstItem="UZe-hd-7XA" firstAttribute="top" secondItem="eUW-Qf-APq" secondAttribute="topMargin" constant="5" id="G4v-Br-3VG"/>
-                                                                <constraint firstItem="UZe-hd-7XA" firstAttribute="trailing" secondItem="eUW-Qf-APq" secondAttribute="trailingMargin" id="PZs-gH-P1E"/>
-                                                                <constraint firstItem="UZe-hd-7XA" firstAttribute="trailing" secondItem="eUW-Qf-APq" secondAttribute="trailingMargin" id="aSN-ag-WCc"/>
                                                                 <constraint firstItem="KA0-X4-AQV" firstAttribute="bottom" secondItem="tB6-CV-1fM" secondAttribute="bottom" id="lfO-I5-UXM"/>
                                                                 <constraint firstItem="KA0-X4-AQV" firstAttribute="centerY" secondItem="X63-h2-lKs" secondAttribute="centerY" id="sCV-xL-Odq"/>
                                                                 <constraint firstItem="KA0-X4-AQV" firstAttribute="leading" secondItem="eUW-Qf-APq" secondAttribute="leadingMargin" constant="6" id="sGg-Z9-kGg"/>
@@ -235,8 +253,8 @@
                                                         </tableViewCellContentView>
                                                         <connections>
                                                             <outlet property="comentario" destination="tB6-CV-1fM" id="fdf-JX-1On"/>
-                                                            <outlet property="comentarioNota" destination="UZe-hd-7XA" id="mqo-Ta-Pp2"/>
                                                             <outlet property="comentarioTitulo" destination="X63-h2-lKs" id="Jqj-k6-kEa"/>
+                                                            <outlet property="cosmos" destination="hrv-sq-q7v" id="qZ5-2z-0Ic"/>
                                                             <outlet property="usuarioImagem" destination="KA0-X4-AQV" id="ZSW-01-7mC"/>
                                                             <outlet property="usuarioNome" destination="qxy-3A-z1Y" id="q8X-Ki-V9w"/>
                                                         </connections>

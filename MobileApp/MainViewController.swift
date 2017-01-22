@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import AlamofireImage
 import Alamofire
-
+import Cosmos
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate  {
     
@@ -230,39 +230,17 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.comentarioTitulo.text = comentario.titulo
             cell.comentario.text = comentario.comentario
             
-            var image = UIImage(named: "NOTA5.png")
-            var size = CGSize(width: 150.0, height: 30.0)
-            
             if let nota = comentario.nota {
                 switch (nota){
-                case 1:
-                    image = UIImage(named: "star.png")
-                    size = CGSize(width: 30.0, height: 30.0)
-                    image = image?.imageResize(sizeChange: size)
-                
-                case 2:
-                    image = UIImage(named: "NOTA2.png")
-                    size = CGSize(width: 60.0, height: 30.0)
-                    image = image?.imageResize(sizeChange: size)
+                case 1: cell.cosmos.rating = 1
+                case 2: cell.cosmos.rating = 2
+                case 3: cell.cosmos.rating = 3
+                case 4: cell.cosmos.rating = 4
+                default: cell.cosmos.rating = 5
                     
-                case 3:
-                    image = UIImage(named: "NOTA3.png")
-                    size = CGSize(width: 90.0, height: 30.0)
-                    image = image?.imageResize(sizeChange: size)
-                    
-                case 4:
-                    image = UIImage(named: "NOTA4.png")
-                    size = CGSize(width: 120.0, height: 30.0)
-                    image = image?.imageResize(sizeChange: size)
-                    
-                default:
-                    image = UIImage(named: "NOTA5.png")
-                    size = CGSize(width: 150.0, height: 30.0)
-                    image = image?.imageResize(sizeChange: size)
                 }
             }
             
-            cell.comentarioNota.image = image
             
         }
         

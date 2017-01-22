@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cosmos
 
 class ComentarioTableViewCell: UITableViewCell {
 
@@ -16,6 +17,7 @@ class ComentarioTableViewCell: UITableViewCell {
     @IBOutlet weak var comentario: UILabel!
     @IBOutlet weak var comentarioNota: UIImageView!
     
+    @IBOutlet weak var cosmos: CosmosView!
     
     
     override func awakeFromNib() {
