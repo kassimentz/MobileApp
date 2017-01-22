@@ -53,7 +53,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: self.scrollView.frame.height+800)
         self.navigationController?.navigationBar.barTintColor = UIColor.orange
-        //self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName : UIFont(name: "Roboto-Regular", size: 14)!]
+        let fontSize = CGFloat(12.0)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName : UIFont.systemFont(ofSize: fontSize)]
+        
+        
         print("idescolhido:",idEscolhido!)
         self.loadData(idEscolhido: idEscolhido!)
         //print(self.pontoTuristico.texto!)
