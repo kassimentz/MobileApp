@@ -240,8 +240,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     
                 }
             }
-            
-            
         }
         
         return cell
