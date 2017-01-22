@@ -48,6 +48,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         super.viewDidLoad()
         configScroll()
+        configStatusBar()
         setNavBarConfiguration()
         
         print("idescolhido:",idEscolhido!)
@@ -58,6 +59,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func configScroll() {
         scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: self.scrollView.frame.height+800)
+    }
+    
+    func configStatusBar() {
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.black;
     }
     
     func setNavBarConfiguration() {
