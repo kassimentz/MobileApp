@@ -236,7 +236,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if let nota = comentario.nota {
                 switch (nota){
                 case 1:
-                    image = UIImage(named: "NOTA1.png")
+                    image = UIImage(named: "star.png")
                     size = CGSize(width: 30.0, height: 30.0)
                     image = image?.imageResize(sizeChange: size)
                 
