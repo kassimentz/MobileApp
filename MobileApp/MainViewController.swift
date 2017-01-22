@@ -174,6 +174,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         navView.addSubview(label)
         navView.addSubview(image)
         self.navigationItem.titleView = navView
+        let searchImage = UIImage(named: "search.png")
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: searchImage, style: UIBarButtonItemStyle.plain, target: self, action: nil)
+        
         navView.sizeToFit()
     }
 
