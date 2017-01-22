@@ -38,6 +38,7 @@ class ListaTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.barTintColor = UIColor.white
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.black]
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.default;
         self.title = "Pontos Turísticos"
     }
 
