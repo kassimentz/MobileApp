@@ -47,12 +47,13 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        self.loadPontosTuristicos(idEscolhido: idEscolhido!)
         configScroll()
         configStatusBar()
         setNavBarConfiguration()
         
         print("idescolhido:",idEscolhido!)
-        self.loadPontosTuristicos(idEscolhido: idEscolhido!)
+        
         self.mapView.delegate = self
         
     }
@@ -79,6 +80,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func addMapAnnotation() {
+        
         if let pontoTuristico = self.pontoTuristico {
             let latDelta: CLLocationDegrees = 0.001
             let lonDelta: CLLocationDegrees = 0.001
@@ -122,32 +124,39 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if(annotation != nil) {
             self.mapView.addAnnotation(annotation)
         }
-        
-        fillData()
+        if let ponto = pontoTuristico {
+            fillData(ponto: ponto)
+        }
         
         tableview.reloadData()
     }
     
-    func fillData() {
+    func fillData(ponto: PontoTuristico) {
         
-        loadImageFromUrl(url: (pontoTuristico?.urlFoto)!, img: foto)
-        loadImageFromUrl(url: (pontoTuristico?.urlLogo)!, img: logo)
-        if let txtTitulo = self.pontoTuristico?.titulo {
+        if let urlFoto = ponto.urlFoto {
+            loadImageFromUrl(url: urlFoto, img: foto)
+        }
+        
+        if let urlLogo = ponto.urlLogo {
+            loadImageFromUrl(url: urlLogo, img: logo)
+        }
+        
+        if let txtTitulo = ponto.titulo {
             titulo.text = txtTitulo
         }
-        if let txtTexto = self.pontoTuristico?.texto {
+        if let txtTexto = ponto.texto {
             texto.text = txtTexto
         }
-        if let txtEndereco = self.pontoTuristico?.endereco {
+        if let txtEndereco = ponto.endereco {
             enderecoMapa.text = txtEndereco
         }
         
         var cidade = "";
         var bairro = "";
-        if let txtCidade = self.pontoTuristico?.cidade {
+        if let txtCidade = ponto.cidade {
             cidade = txtCidade
         }
-        if let txtBairro = self.pontoTuristico?.bairro {
+        if let txtBairro = ponto.bairro {
             bairro = txtBairro
         }
         
