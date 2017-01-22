@@ -55,6 +55,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.navigationController?.navigationBar.barTintColor = UIColor.orange
         let fontSize = CGFloat(12.0)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName : UIFont.systemFont(ofSize: fontSize)]
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        let backImage = UIImage(named: "left-arrow.png")
+        self.navigationController?.navigationBar.backIndicatorImage = backImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
         
         
         print("idescolhido:",idEscolhido!)
