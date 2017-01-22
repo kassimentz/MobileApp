@@ -11,6 +11,11 @@ import MapKit
 import AlamofireImage
 import Alamofire
 
+/**
+ TODO
+ COLOCAR COR NA BARRA DE NAVEGACAO AO INVES DA IMAGEM E ADD AS IMAGENS DE VOLTAR E DE BUSCA E DE PIN, JUNTO COM O NOME DO LOCAL (CIDADE - BAIRRO)
+ **/
+
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate  {
     
     @IBOutlet weak var tableview: UITableView!
@@ -47,15 +52,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         
         scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: self.scrollView.frame.height+800)
-        
-
-        var image = UIImage(named: "BARRA SUPERIOR.png")
-        let size = CGSize(width: self.scrollView.frame.width-90, height: 70.0)
-        image = image?.imageResize(sizeChange: size)
-        
-        
-        self.navigationController?.navigationBar.setBackgroundImage(image,for: .default)
-       
+        self.navigationController?.navigationBar.barTintColor = UIColor.orange
+        //self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName : UIFont(name: "Roboto-Regular", size: 14)!]
         print("idescolhido:",idEscolhido!)
         self.loadData(idEscolhido: idEscolhido!)
         //print(self.pontoTuristico.texto!)
@@ -126,6 +124,16 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             enderecoMapa.text = txtEndereco
         }
         
+        var cidade = "";
+        var bairro = "";
+        if let txtCidade = self.pontoTuristico?.cidade {
+            cidade = txtCidade
+        }
+        if let txtBairro = self.pontoTuristico?.bairro {
+            bairro = txtBairro
+        }
+        
+        self.navigationItem.title = cidade + " - " + bairro
         tableview.reloadData()
     }
 

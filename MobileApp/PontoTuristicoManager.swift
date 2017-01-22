@@ -44,6 +44,7 @@ class PontoTuristicoManager: NSObject {
             
                 ponto.id = json["id"].string
                 ponto.cidade = json["cidade"].string
+                ponto.bairro = json["bairro"].string
                 ponto.urlFoto = json["urlFoto"].string
                 ponto.urlLogo = json["urlLogo"].string
                 ponto.titulo = json["titulo"].string
