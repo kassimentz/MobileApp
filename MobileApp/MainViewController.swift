@@ -30,7 +30,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var enderecoMapa: UILabel!
     
     
-    
+    /*
+     Utiliza a classe PontoTuristicoManager para buscar o ponto turistico selecionado.
+     Devolve um Objeto PontoTuristico
+     */
+
     func loadPontosTuristicos(idEscolhido: String) {
         
         let pontoTuristicoManager = PontoTuristicoManager()
@@ -57,15 +61,19 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.mapView.delegate = self
         
     }
-    
+    /*
+     Configura o scroll da tela
+     */
     func configScroll() {
         scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: self.scrollView.frame.height+800)
     }
     
+    //Troca a cor da status bar
     func configStatusBar() {
         self.navigationController?.navigationBar.barStyle = UIBarStyle.black;
     }
     
+    //Seta as configuracoes da barra de navegacao, como cor e imagem
     func setNavBarConfiguration() {
         self.navigationController?.navigationBar.barTintColor = UIColor.orange
         self.navigationController?.navigationBar.tintColor = UIColor.white
@@ -79,6 +87,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.didReceiveMemoryWarning()
     }
     
+    // Cria a annotation do mapa, configurando com uma informacao de titulo e com o zoom adequado no mapa
     func addMapAnnotation() {
         
         if let pontoTuristico = self.pontoTuristico {
@@ -103,6 +112,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    //Configura o estilo da annotation
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKPointAnnotation {
             let pinAnnotationview = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "myPin")
@@ -117,6 +127,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return nil
     }
     
+    // Após o final da renderizacao do mapa, adiciona a annotation e busca os dados do ponto turistico
     func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
 
         addMapAnnotation()
@@ -131,6 +142,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableview.reloadData()
     }
     
+    //Preenche os dados do ponto turistico na tela
     func fillData(ponto: PontoTuristico) {
         
         if let urlFoto = ponto.urlFoto {
@@ -163,6 +175,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         setTitleBarConfiguration(title: cidade + " - " + bairro)
     }
     
+    //Configura o titulo da navigation bar, setando a imagem e o texto
     func setTitleBarConfiguration(title: String) {
         let navView = UIView()
         
@@ -195,7 +208,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         navView.sizeToFit()
     }
 
-    
+    //Dada uma URL, converte em imagem e seta no componente
     func loadImageFromUrl(url: String, img: UIImageView) {
         Alamofire.request(url).responseImage { response in
             if let image = response.result.value {
@@ -205,6 +218,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
 
+    //Mostra o endereco em um alert
     @IBAction func mostrarEndereco(_ sender: Any) {
         
         let alert = UIAlertController(title: "Alert", message: pontoTuristico?.endereco, preferredStyle: UIAlertControllerStyle.alert)
@@ -213,19 +227,26 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     
+    //Realiza uma ligacao. Pergunta ao usuario se ele deseja que a ligacao seja efetuada
     @IBAction func realizarLigacao(_ sender: Any) {
         
-        let formatedNumber = self.pontoTuristico?.telefone?.components(separatedBy: NSCharacterSet.decimalDigits.inverted).joined(separator: "")
-        
-        if let url = URL(string: "telprompt://" + formatedNumber!) {
-            if #available(iOS 10, *) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            } else {
-                UIApplication.shared.openURL(url as URL)
+        if let telefone = self.pontoTuristico?.telefone {
+            
+            let formatedNumber = telefone.components(separatedBy: NSCharacterSet.decimalDigits.inverted).joined(separator: "")
+            
+            if let url = URL(string: "telprompt://" + formatedNumber) {
+                if #available(iOS 10, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url as URL)
+                }
             }
+        
         }
+        
     }
     
+    //Leva o focus para os comentarios, somente se existir comentarios na tabela
     @IBAction func mostrarComentarios(_ sender: UIButton) {
         if (self.pontoTuristico?.comentarios?.count)! > 0 {
             let indexPath = IndexPath(row: 0, section: 0)
@@ -267,33 +288,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
 
 }
-extension UIImage {
-    
-    func imageResize (sizeChange:CGSize)-> UIImage{
-        
-        let hasAlpha = true
-        let scale: CGFloat = 0.0 // Use scale factor of main screen
-        
-        UIGraphicsBeginImageContextWithOptions(sizeChange, !hasAlpha, scale)
-        self.draw(in: CGRect(origin: CGPoint.zero, size: sizeChange))
-        
-        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
-        return scaledImage!
-    }
-    
-}
+
