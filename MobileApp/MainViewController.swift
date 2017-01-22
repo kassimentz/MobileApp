@@ -11,10 +11,6 @@ import MapKit
 import AlamofireImage
 import Alamofire
 
-/**
- TODO
- COLOCAR COR NA BARRA DE NAVEGACAO AO INVES DA IMAGEM E ADD AS IMAGENS DE VOLTAR E DE BUSCA E DE PIN, JUNTO COM O NOME DO LOCAL (CIDADE - BAIRRO)
- **/
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate  {
     
@@ -35,7 +31,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     
-    func loadData(idEscolhido: String) {
+    func loadPontosTuristicos(idEscolhido: String) {
         
         let pontoTuristicoManager = PontoTuristicoManager()
         
@@ -49,25 +45,27 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+        super.viewDidLoad()
+        configScroll()
+        setNavBarConfiguration()
+        
+        print("idescolhido:",idEscolhido!)
+        self.loadPontosTuristicos(idEscolhido: idEscolhido!)
+        self.mapView.delegate = self
+        
+    }
+    
+    func configScroll() {
         scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: self.scrollView.frame.height+800)
+    }
+    
+    func setNavBarConfiguration() {
         self.navigationController?.navigationBar.barTintColor = UIColor.orange
-        let fontSize = CGFloat(12.0)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName : UIFont.systemFont(ofSize: fontSize)]
         self.navigationController?.navigationBar.tintColor = UIColor.white
         let backImage = UIImage(named: "left-arrow.png")
         self.navigationController?.navigationBar.backIndicatorImage = backImage
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
-        
-        
-        print("idescolhido:",idEscolhido!)
-        self.loadData(idEscolhido: idEscolhido!)
-        //print(self.pontoTuristico.texto!)
-        
-        self.mapView.delegate = self
-        
-        
     }
     
     
@@ -113,16 +111,24 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
+
         addMapAnnotation()
-        print(annotation)
+
         if(annotation != nil) {
             self.mapView.addAnnotation(annotation)
         }
         
+        fillData()
+        
+        tableview.reloadData()
+    }
+    
+    func fillData() {
+        
         loadImageFromUrl(url: (pontoTuristico?.urlFoto)!, img: foto)
         loadImageFromUrl(url: (pontoTuristico?.urlLogo)!, img: logo)
         if let txtTitulo = self.pontoTuristico?.titulo {
-           titulo.text = txtTitulo
+            titulo.text = txtTitulo
         }
         if let txtTexto = self.pontoTuristico?.texto {
             texto.text = txtTexto
@@ -140,8 +146,35 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             bairro = txtBairro
         }
         
-        self.navigationItem.title = cidade + " - " + bairro
-        tableview.reloadData()
+        setTitleBarConfiguration(title: cidade + " - " + bairro)
+    }
+    
+    func setTitleBarConfiguration(title: String) {
+        let navView = UIView()
+        
+        let label = UILabel()
+        label.text = title
+        label.sizeToFit()
+        let fontSize = CGFloat(12.0)
+        
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: fontSize)
+        label.center = navView.center
+        label.textAlignment = NSTextAlignment.center
+        
+        let image = UIImageView()
+        image.image = UIImage(named: "placeholder-2.png")
+        let imageAspect = image.image!.size.width/image.image!.size.height
+        image.frame = CGRect(x: label.frame.origin.x - label.frame.size.height+20 * imageAspect,
+                             y: label.frame.origin.y,
+                             width: label.frame.size.height * imageAspect,
+                             height: label.frame.size.height)
+        
+        image.contentMode = UIViewContentMode.scaleAspectFit
+        navView.addSubview(label)
+        navView.addSubview(image)
+        self.navigationItem.titleView = navView
+        navView.sizeToFit()
     }
 
     
@@ -155,6 +188,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
 
     @IBAction func mostrarEndereco(_ sender: Any) {
+        
         let alert = UIAlertController(title: "Alert", message: pontoTuristico?.endereco, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
@@ -162,7 +196,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     @IBAction func realizarLigacao(_ sender: Any) {
-        print("realizar ligacao")
+        
         let formatedNumber = self.pontoTuristico?.telefone?.components(separatedBy: NSCharacterSet.decimalDigits.inverted).joined(separator: "")
         
         if let url = URL(string: "telprompt://" + formatedNumber!) {
@@ -181,11 +215,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    
     // MARK: - Table functions
-    
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell: ComentarioTableViewCell = tableView.dequeueReusableCell(withIdentifier: "comentarioCell", for: indexPath) as! ComentarioTableViewCell
         if let comentario = self.pontoTuristico?.comentarios?[indexPath.row] {
             loadImageFromUrl(url: (comentario.urlFoto)!, img: cell.usuarioImagem)
@@ -241,13 +274,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
-
-    
-    
-    
-
-    
-    
     
     /*
     // MARK: - Navigation
@@ -258,7 +284,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Pass the selected object to the new view controller.
     }
     */
-    
     
     
 
